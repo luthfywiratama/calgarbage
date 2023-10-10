@@ -6,8 +6,6 @@
     @include('includes.admin.flash-message')
     <div class="card">
         <div class="card-body">
-            <button data-bs-toggle="modal" data-bs-target="#addModal" type="button" class="btn btn-primary mb-2">Add
-                Type</button>
             <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
                 <thead>
                     <tr>
@@ -59,7 +57,7 @@
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+                <h5 class="modal-title" id="modalTitleId">Update Status</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="#" method="POST" id="form-update">

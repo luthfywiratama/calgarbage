@@ -3,12 +3,31 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\GarbageType;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function home()
     {
-        return view('pages.admin.home');
+        $transactions = Transaction::latest()->get();
+        $types = GarbageType::all();
+
+        $stats = GarbageType::withSum('transactions', 'weight')->get();
+
+        $label = $stats->pluck('name');
+        $count = $stats->pluck('transactions_sum_weight');
+        $color = $stats->pluck('color');
+
+
+
+        return view('pages.admin.home', [
+            'transactions' => $transactions,
+            'types' => $types,
+            'label' => $label,
+            'count' => $count,
+            'color' => $color,
+        ]);
     }
 }

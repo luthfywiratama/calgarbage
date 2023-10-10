@@ -101,8 +101,8 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Jumlah Berat</label>
-                        <input type="number" class="form-control" name="weight" id="weight" aria-describedby="helpId"
+                        <label for="" class="form-label">Jumlah Berat (KG)</label>
+                        <input type="text" class="form-control number" name="weight" id="weight" aria-describedby="helpId"
                             placeholder="">
                     </div>
                     <div>
@@ -190,6 +190,14 @@
 
     <script>
         $(document).ready(function () {
+
+
+            $(".number").on("keypress keyup blur",function (event) {
+            $(this).val($(this).val().replace(/[^\d].+/, ""));
+                if ((event.which < 48 || event.which > 57)) {
+                    event.preventDefault();
+                }
+            });
 
             function totalpay()
             {
